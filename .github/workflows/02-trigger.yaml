@@ -1,0 +1,12 @@
+name: Triggers
+on: workflow_dispatch
+# [push] # triggers the workflow on every push to the repository
+jobs:
+  # job name
+  trigger:
+    runs-on: ubuntu-latest # github hosted runners
+    steps:
+      - name: manual dispatch
+        run: echo "manually dispatched!" # the cmd to execute
+
+
