@@ -1,0 +1,32 @@
+name: Contexts demo
+on: [push]
+
+env:
+  project: "roboshop"
+  component: "catalogue"
+  environment: "dev"
+
+jobs:
+ # job name
+  github-context:
+    runs-on: ubuntu-latest
+    steps:
+     - name: print info
+       run: |
+         echo "${{ toJson(github) }}"   # # run till here yu will get all predefined contex names 
+         echo "branch name: ${{ github.ref_name }}"
+
+     - name: access any variables
+       run: |
+         echo "Project: $project"
+         echo "Component: $component"
+         echo "Environment: $environment"
+
+     - name: access the secrets
+       run: |
+         echo "DB user name:  ${{ secrets.DB_USER }}"
+         echo "DB password:  ${{ secrets.DB_PASSWORD }}"
+        
+     - name: prnt the variables
+       run: |
+         echo "DB_URL: ${{ vars.DB_URL }}"
