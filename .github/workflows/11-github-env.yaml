@@ -69,6 +69,81 @@
 
 # if we wnat to pass another job
 
+# name: Contexts demo
+# on: [push]
+
+# env:
+#   project: "roboshop"
+#   component: "catalogue"
+#   environment: "dev"
+
+# jobs:
+#  # job name
+#   github-context:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       image-name: ${{ steps.tag.outputs.image-name }}
+#       image-version: ${{ steps.tag.outputs.version }}
+#     steps:
+#      - name: print info
+#        run: |
+#          echo "${{ toJson(github) }}"   # # run till here yu will get all predefined contex names 
+#          echo "branch name: ${{ github.ref_name }}"
+
+#      - name: access any variables
+#        run: |
+#          echo "Project: $project"
+#          echo "Component: $component"
+#          echo "Environment: $environment"
+
+#      - name: access the secrets
+#        run: |
+#          echo "DB user name:  ${{ secrets.DB_USER }}"
+#          echo "DB password:  ${{ secrets.DB_PASSWORD }}"
+        
+#      - name: print the variables
+#        run: |
+#          echo "DB_URL: ${{ vars.DB_URL }}"
+
+
+#      - name: image tag
+#        id: tag
+#        run: |
+#           echo "version=1.0.0" >> $GITHUB_OUTPUT
+#           echo "image-name=catalogue" >> $GITHUB_OUTPUT
+
+#      - name: print previous step output
+#        run: |
+#          echo "Image name: ${{ steps.tag.outputs.image-name }}"
+#          echo "Version: ${{ steps.tag.outputs.version }}"
+
+#       # useful within the job
+#      - name: github env
+#        run: |
+#          echo "Course=github-actions" >> $GITHUB_ENV
+#          echo "Duration=5hours"   >> $GITHUB_ENV
+
+#      - name:  print github env
+#        run: |
+#          echo "Course:  $Course"  
+#          echo "Duration: $Duration"
+
+  
+# # creating another job but output wont pass here.
+
+#   deploy:
+#     needs: github-context #depends on above job
+#     runs-on: ubuntu-latest 
+#     steps:
+#       - name: print github env in anther job
+#         run: |
+#           echo "Image Name:  ${{ needs.github-context.outputs.image-name }}"
+#           echo "Image Version: ${{ needs.github-context.outputs.image-version }}" 
+
+
+
+# parallel job
+
 name: Contexts demo
 on: [push]
 
@@ -139,3 +214,9 @@ jobs:
         run: |
           echo "Image Name:  ${{ needs.github-context.outputs.image-name }}"
           echo "Image Version: ${{ needs.github-context.outputs.image-version }}" 
+
+  scan:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: run sonar scan
+        run: echo "Sonar Scan"
