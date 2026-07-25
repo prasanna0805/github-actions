@@ -1,0 +1,11 @@
+name: Hello Worlds Workflow
+on: [push] # triggers the workflow on every push to the repository
+jobs:
+  # job name
+  say-hello:
+    runs-on: ubuntu-latest # github hosted runners
+    steps:
+      - name: Greet the world
+        run: echo "Hello, World!" # the cmd to execute
+
+
