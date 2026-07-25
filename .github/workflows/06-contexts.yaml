@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: print info
-       run: echo "${{ toJson(github) }}" 
+       run: |
+         echo "${{ toJson(github) }}"   # # run till here yu will get all predefined contex names 
+         echo "branch name: ${{ github.ref_name }}"
