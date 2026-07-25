@@ -138,4 +138,4 @@ jobs:
       - name: print github env in anther job
         run: |
           echo "Image Name:  ${{ needs.github-context.outputs.image-name }}"
-          echo "Image Version: ${{ needs.github-context.outputs.version }}" 
+          echo "Image Version: ${{ needs.github-context.outputs.image-version }}" 
