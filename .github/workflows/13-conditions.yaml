@@ -1,0 +1,13 @@
+name: conditions demo
+on: [push]
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: main branch
+        if: github.ref_name == 'main'
+        run: echo "This one executes if branch is main"
+
+      - name: feature branch
+        if: github.ref_name == 'feature-*'
+        run: echo "This one executes if branch is feature"  
