@@ -303,3 +303,8 @@ jobs:
 
       - name: print job contexts
         run: echo "${{ toJson(job) }}"  
+
+        # runner
+
+      - name: print runner Contexts
+        run: echo "${{ tojson(runner) }}"  
