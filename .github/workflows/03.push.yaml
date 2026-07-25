@@ -1,0 +1,14 @@
+name: Triggers
+on: 
+  push:
+    branches:
+      - 'feature*'
+jobs:
+  # job name
+  trigger:
+    runs-on: ubuntu-latest # github hosted runners
+    steps:
+      - name: feature branch push
+        run: echo "feature branch push" # the cmd to execute
+
+
