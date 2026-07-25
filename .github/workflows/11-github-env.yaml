@@ -54,3 +54,14 @@ jobs:
          echo "Course:  $Course"  
          echo "Duration: $Duration"
 
+  
+# creating another job but output wont pass here.
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: github-context
+    steps:
+      - name: print github env in anther job
+        run: |
+          echo "Course: $Course"
+          echo "Duration: $Duration"
