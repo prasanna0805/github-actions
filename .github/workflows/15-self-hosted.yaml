@@ -3,7 +3,7 @@ on: [push] # triggers the workflow on every push to the repository
 jobs:
   # job name
   self-hosted:
-    runs-on: self hosted  # our own runner
+    runs-on: self-hosted  # our own runner
     steps:
       - name: Greet the world
         run: echo "Hello, from self hosted runner! " # the cmd to execute
