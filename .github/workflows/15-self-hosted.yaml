@@ -1,4 +1,4 @@
-name: self hosted 
+name: self-hosted 
 on: [push] # triggers the workflow on every push to the repository
 jobs:
   # job name
